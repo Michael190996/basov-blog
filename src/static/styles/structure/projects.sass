@@ -1,0 +1,38 @@
+.projects
+  display: block
+  background: #262626 !important
+  padding: 40px 0 !important
+  .block-subject
+    margin: 0
+    margin-bottom: 40px
+    .text-decoration
+      color: #fff
+      &:after
+        background: #fff
+      &:hover:after
+        background: #f7c32e
+  .project
+    position: relative
+    height: 430px
+    display: inline-block
+    overflow: hidden
+    transform: none !important
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3) !important
+    &:hover
+      .background
+        transform: scale(1.5)
+      .full
+        opacity: 1
+    .background
+      transition: all 0.5s
+    .full
+      opacity: 0
+      transition: all 0.5s
+      .subject
+        font-family: "PFRegal"
+        color: #f7c32e
+        font-weight: normal
+
+@media screen and (min-width: 1600px)
+  .projects .project
+    height: 470px

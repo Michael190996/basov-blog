@@ -1,0 +1,46 @@
+doctype html
+
+- locals.pageActive = function(bl) { return bl == pageTemplate ? 'active' : ''}
+- locals.BlockAmbry = {}
+
+html.no-js(lang="en" class=pageTemplate)
+   head
+      title= title
+      meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
+      meta(name="keywords" content=keywords)
+      meta(name="description" content=description)
+      block styles
+
+      block links
+         link(rel="stylesheet" href="/static/libs/bootstrap/dist/css/bootstrap.min.css")
+         link(rel="stylesheet" href="/static/styles/style.css")
+         link(href="https://meduza.io/assets/fonts/fonts.8293f44692dcf4bc8bdd2e3ddbdfa8bc.css" rel="stylesheet")
+         link(href="/static/styles/fonts.css" rel="stylesheet")
+         link(href="/static/libs/components-font-awesome/css/font-awesome.min.css" rel="stylesheet")
+
+      block head
+   body
+      if admin
+         include ../structure/admin/panel
+      block fix
+         include ../structure/fix-menu
+      block modal-search
+         include ../structure/modal-search
+
+      block header
+         include ../structure/header
+
+      #content
+         block content
+            include ../structure/content
+      block footer
+         include ../structure/footer
+
+      block js
+         script(src="/static/detect/modernizr.js")
+         script(src="/static/libs/jquery/dist/jquery.min.js")
+         script(src="/static/libs/jquery.cookie/jquery.cookie.js")
+         script(src="/static/libs/bootstrap/dist/js/bootstrap.min.js")
+         script(src="/static/js/index.js")
+      +block-call('js-mixin', 'added')

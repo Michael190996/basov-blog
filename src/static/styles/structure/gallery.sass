@@ -1,0 +1,114 @@
+.gallery
+  padding: 40px 0
+  background: #f7f7f7
+  min-height: 200px
+  position: relative
+  .albums
+    position: absolute
+    font-size: 22px
+    margin-top: 6px
+    right: 19px
+    color: inherit
+    z-index: 30
+    &.active
+      color: #f7c32e
+  .photo &
+    padding: 5px 0
+    .block-subject
+      margin-top: 18px
+  .photo
+    margin: 30px auto
+    position: relative
+    padding: 0px
+    max-width: 1600px
+    margin-top: 0
+    .photo &
+      margin: 10px auto
+    img
+      width: 100%
+    .block
+      display: block
+      float: left
+      padding: 15px
+      width: 33%
+      transition: none !important
+      cursor: pointer
+  .wrapper
+    transition: all 0.5s
+    position: relative
+    box-shadow: 0 0 7px 0px rgba(0, 0, 0, 0.3)
+    &:hover
+      transform: scale(0.98)
+      box-shadow: none
+    .description
+      padding: 10px
+      padding-top: 0
+      font-size: 15px
+    .subject
+      font-size: 19px
+      padding: 10px
+      padding-bottom: 3px !important
+  .block-subject
+    margin-top: 0
+
+  .container
+    padding: 0
+  &.nomasonry, .no-js &
+    .block
+      width: calc(33% - 20px)
+      display: inline-block
+      position: relative
+      margin: 0
+      &:last-child
+        margin-bottom: 0 !important
+      &:nth-child(3n-1)
+        margin-left: 25px
+        margin-right: 25px
+        img
+          margin-top: 40px
+          box-shadow: 0 0 30px 0 rgba(0,0,0,0.3)
+
+  .block .date
+    color: rgba(255, 255, 255, 0.8)
+    position: absolute
+    bottom: 10px
+    right: 10px
+    font-size: 14px
+    z-index: 1
+    i
+      margin-right: 5px
+
+  .up
+    font-size: 20px
+    color: #1E1E1E
+    margin-top: 20px
+    display: block
+    a
+      color: inherit
+
+@media screen and (max-width: 992px)
+  .gallery
+    &.nomasosnry
+      .block
+        width: 46%
+        margin-left: 1.85% !important
+        margin-right: 1.85% !important
+        margin-bottom: 40px
+        padding-bottom: 0 !important
+        img
+          margin-top: 0 !important
+    .photo
+      .block
+        margin-top: 0 !important
+        width: 50% !important
+
+
+@media screen and (max-width: 768px)
+  .gallery
+    .container
+      .block
+        width: 80% !important
+        margin-left: 10% !important
+        margin-right: 10% !important
+        margin-bottom: 15px !important
+        padding-bottom: 0 !important

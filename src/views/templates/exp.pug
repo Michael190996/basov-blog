@@ -1,0 +1,9 @@
+extends ../extends/layout
+include ../mixins
+
+block content
+   .review
+      .background(style=`background: url(${menu[pageTemplate].img}); background-position: 50% 60% !important;`)
+      .full
+         .block-center.block
+            .category.active= menu[pageTemplate].title

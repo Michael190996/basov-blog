@@ -1,0 +1,25 @@
+#footer
+   .container
+      .block.col-md-3.col-sm-3.col-xs-3.block-social
+         .wrapper
+            include ./social
+            .block-search.text-center
+               include ./search
+               a.daveGandy(href="http://fontawesome.io" target="_blink") Thank you, Dave Gandy!
+      .block.col-md-6.col-sm-6.col-xs-6.block-logo
+         +logo
+      .block.col-md-3.col-sm-3.col-xs-3
+         +menu(menu)
+
+            +menu-set('home')
+               a(href=menu.home.href)= menu.home.title
+            +menu-set('trip')
+               a(href=menu.trip.href)= menu.trip.title
+            +menu-set('mind')
+               a(href=menu.mind.href)= menu.mind.title
+            +menu-set('photo')
+               a(href=menu.photo.href)= menu.photo.title
+            +menu-set('exp')
+               a(href=menu.exp.href)= menu.exp.title
+            +menu-set('more')
+               .a.click= menu.more.title

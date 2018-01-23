@@ -1,0 +1,12 @@
+.git/*
+.idea/*
+node_modules/*
+bower_components/*
+static/libs/*
+dist/*
+!/dist/static
+dist/static/js/*
+dist/static/styles/*
+dist/static/libs/*
+postgres/data/*
+db/postgres/data/*

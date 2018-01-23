@@ -1,0 +1,32 @@
++slider(dataSlides)
+
+.news
+   .container
+      +news-blocks(dataArticles.items)
+
+.projects.gallery.nomasonry
+   .block-subject.text-center
+      a.text-decoration(href=menu.exp.href)= menu.exp.title
+   .container.text-center
+      each item in dataExp.items
+         +projects-block(item)
+
+.gallery.text-center
+   .block-subject
+      a.text-decoration(href=menu.photo.href)= menu.photo.title
+   .container
+      .photo
+         each photo in dataPhotos.items
+            a.block(href=`${menu.photo.href}` data-photo=photo)
+               .wrapper
+                  .date
+                     i.fa.fa-clock-o
+                     = photo.date
+                  img(src=photo.src)
+
++block-set('js-mixin', 'added')
+   script(src="/static/libs/masonry-layout/dist/masonry.pkgd.min.js")
+   script(src="/static/js/masonry-blocks.js")
+
+
+

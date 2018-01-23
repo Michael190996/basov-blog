@@ -1,0 +1,120 @@
+.modal-gallery
+  background: rgba(0,0,0,0.7)
+  position: fixed
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  &.in
+    display: table !important
+  .close
+    position: absolute
+    right: 0
+    top: 0
+    padding: 4px 10px
+    z-index: 30
+    color: #fff
+    font-size: 35px
+    opacity: 1
+    transition: all 0.5s
+    outline: none
+  .block
+    padding: 10px 0
+    display: table-cell
+    vertical-align: middle
+    text-align: center
+    margin: auto
+    position: relative
+    .wrapper
+      content: ''
+      position: absolute
+      height: 100%
+      width: 100%
+      z-index: -1
+      background: #000
+    .right
+      position: absolute
+      right: 0
+      width: 10%
+      top: 0
+      cursor: pointer
+      z-index: 20
+      bottom: 0
+      height: 100%
+      margin: auto
+    .photo
+      min-height: 300px
+      margin-left: -300px
+      position: relative
+      img
+        object-fit: cover
+        border-top-left-radius: 3px
+        border-bottom-left-radius: 3px
+        max-height: calc(100vh - 30px)
+        max-width: 70%
+        min-width: 500px
+        background: #1e1e1e
+        min-height: 300px
+      .info
+        overflow-y: auto
+        height: 100%
+        position: absolute
+        width: 20%
+        min-width: 200px
+        max-width: 300px
+        text-align: justify
+        background: #fff
+        border-top-right-radius: 3px
+        border-bottom-right-radius: 3px
+        display: inline-block
+        .more
+          padding: 20px
+          border-bottom: 1px solid #efefef
+          display: block
+          color: inherit
+          text-decoration: none
+          .logo
+            background-position: 50% 50% !important
+            background-size: cover !important
+            float: left
+            margin-right: 13px
+            width: 42px
+            height: 42px
+            border-radius: 100%
+          .subject
+            margin-top: 2px
+            font-weight: bold
+            font-size: 15px
+          .detail
+            margin-top: 2px
+            font-size: 12px
+            text-overflow: ellipsis
+            white-space: nowrap
+            overflow: hidden
+        .theme
+          padding: 7px 20px
+          height: calc(100% - 108px)
+          position: absolute
+          overflow-y: auto
+        .foot
+          position: absolute
+          width: 100%
+          font-size: 13px
+          bottom: 0
+          padding: 4px 10px
+          background: #1e1e1e
+          color: #7f7f7f
+          a
+            color: #7f7f7f
+            &:hover
+              color: #c6c6c6
+          .date
+            float: left
+            span
+              margin-left: 4px
+          .link-origin
+            transition: all 0.5s
+            float: right
+            margin: 0
+
+@import "../pages/photo"

@@ -1,0 +1,39 @@
+extends ../extends/layout
+include ../mixins
+
+block fix
+   include ../structure/fix-menu
+   include ../structure/modal-gallery
+
+block content
+   .review
+      if dataPhotos.album
+         .background(style=`background: url(${dataPhotos.album.background}); background-position: 50% 70% !important;`)
+      else
+         .background(style=`background: url(${menu[pageTemplate].img}); background-position: 50% 70% !important;`)
+      .full
+         .block-center.block
+            if dataPhotos.album
+               .category.active= dataPhotos.album.title
+            else
+               .category.active= menu[pageTemplate].title
+
+   .gallery
+      a.albums.fa.fa-th.click(href="/photo/albums#menu")
+      .photo(data-datephotos=JSON.stringify(dataPhotos))
+         each photo in dataPhotos.items
+            .block(data-photo=photo)
+               .wrapper
+                  .date
+                     i.fa.fa-clock-o
+                     = photo.date
+                  img(src=photo.src)
+
+         if dataPhotos.items.length < dataPhotos.total
+            .up.center
+               .i.fa.fa-refresh.click
+
+      +block-set('js-mixin', 'added')
+         script(src="/static/libs/masonry-layout/dist/masonry.pkgd.min.js")
+         script(src="/static/js/masonry-blocks.js")
+         script(src="/static/js/gallery.js")

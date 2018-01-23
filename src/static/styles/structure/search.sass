@@ -1,0 +1,63 @@
+.modal-search
+  background: rgba(0,0,0,0.7)
+  position: fixed !important
+  overflow: auto
+  border-top: 9px solid #121212
+  z-index: 2000 !important
+  &.in + #header,
+  &.in + #header + #content,
+  &.in + #header + #content + #footer
+    filter: blur(3px)
+  .container
+    margin-top: 64px
+    max-width: 800px
+    .search
+      width: 100%
+      position: relative
+      input
+        width: 100%
+        padding: 3px 0
+        background: none
+        outline: none
+        border: 0
+        border-bottom: 2px solid #fff
+        font-size: 30px
+        font-weight: bold
+        color: #fff
+        padding-right: 25px
+        & + i
+          position: absolute
+          right: 0
+          top: 16px
+          bottom: 0
+          margin: auto
+          font-size: 16px
+          color: #8b8b8b
+          opacity: 0.8
+          transition: opacity 0.5s
+          &:hover
+            opacity: 1
+    .result
+      margin-top: 10px
+      padding-bottom: 30px
+      .error
+        color: #fff
+        font-size: 19px
+        text-transform: uppercase
+        display: none
+      .info
+        color: #757575
+        font-size: 16px
+        font-weight: bold
+      .row
+        display: block
+        color: inherit
+        margin: 0
+        padding: 15px 0
+        border-bottom: 1px solid #393a3a
+        &:nth-last-child(1)
+          border-bottom: 0
+        .article
+          padding-left: 0
+          .date
+            color: #393a3a

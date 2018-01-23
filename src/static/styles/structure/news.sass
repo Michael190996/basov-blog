@@ -1,0 +1,117 @@
+.news
+  position: relative
+  padding-top: 10px
+  padding-bottom: 15px
+  .block-subject
+    padding-top: 45px
+    margin-top: 0
+  &:after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    z-index: -2
+    width: 100%
+    height: 100%
+    background: rgba(193, 193, 193, 0.11)
+  .container
+    padding: 0
+    .preview-text
+      white-space: pre-wrap
+    .article
+      position: relative
+      width: 100%
+      display: inline-block
+    .wrapper
+      margin: 16px 0
+      position: unset
+      padding-right: 0
+      padding-left: 5px !important
+      padding-right: 5px
+      padding-left: 0
+      .index
+        width: 100%
+        height: 10px
+        margin-left: -10px
+        margin-top: -12px
+        margin-bottom: 10px
+        padding-right: 19px
+        box-sizing: content-box
+        background: #f1e5e5
+      .abs-wrapper
+        padding-bottom: 19px
+        padding-left: 6px
+        padding-right: 16px
+        z-index: -1
+        position: absolute
+        height: 100%
+        .block
+          height: 100%
+          width: 100%
+          padding: 0px 16px
+          box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15), inset 0 -1px 0 0 rgba(0, 0, 0, 0.2)
+          background: #fff
+      &.last
+        padding-right: 0px
+        .abs-wrapper
+          padding-right: 11px
+
+      .block
+        width: 100%
+        display: block
+        padding: 13px 16px
+        padding-bottom: 40px
+        &, a
+          color: #1E1E1E
+      .background
+        background-repeat: no-repeat !important
+        //	background-position: 0 -160px  !important
+        background-size: cover !important
+        height: 400px
+        margin: -12px -9px
+        width: calc(100% + 18px)
+        margin-bottom: 10px
+      .mini-block
+        .category
+          font-size: 13px
+        .subject
+          font-size: 20px
+        .keys
+          i
+            margin-right: 4px
+          .click
+            transition: all 0.5s
+            .circle
+              font-size: 5px
+              margin-left: 5px
+              margin-right: 10px
+              &:before
+                position: absolute
+                margin-top: -6px
+            &:hover
+              color: #000
+        .more
+          margin-top: 12px
+          position: absolute
+          bottom: 15px
+
+@media screen and (max-width: 992px)
+  .news
+    padding-top: 0
+    .container
+      .wrapper
+        padding: 0 !important
+        margin-bottom: 0
+        .abs-wrapper
+          display: none
+        .block
+          margin-top: 13px
+          position: relative
+          background: #fff
+          box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15), inset 0 -1px 0 0 rgba(0, 0, 0, 0.2)
+          padding-left: 10px
+          padding-right: 10px
+          .background
+            height: 430px
+          .more
+            bottom: 7px

@@ -1,0 +1,12 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
+  "plugins": ["async-await"],
+  "rules": {
+    "semi": 2,
+    "async-await/space-after-async": 2,
+    "async-await/space-after-await": 2
+  }
+}

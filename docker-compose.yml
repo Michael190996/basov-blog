@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  blog:
+    build: .
+    restart: always
+    volumes:
+     - "./dist/www:/var/www/blog"
+    depends_on:
+     - db
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_DATABASE: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ""
+      BLOG_PORT: 3000
+      CACHE: true
+  db:
+    image: postgres
+    volumes:
+     - "./db/postgres/data:/var/lib/postgresql/data"
+     - "./db/postgres/scripts:/docker-entrypoint-initdb.d"
+  nginx:
+    image: nginx
+    ports:
+     - 3005:80
+    depends_on:
+     - blog
+    volumes:
+      - "./nginx:/home_nginx"
+      - "./dist/www/static:/var/www/blog/static"
+    environment:
+      BLOG_HOST: http://blog:3000/
+    command: sh /home_nginx/run_nginx.sh

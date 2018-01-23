@@ -1,0 +1,16 @@
+#header
+   .container
+      .row.title
+         .text-left.col-md-4.col-xs-4.col-sm-4.block-social
+            include social
+         .text-center.col-md-4.col-xs-4.col-sm-4.block-logo
+            +logo
+         .text-right.col-md-4.col-xs-4.col-sm-4.block-search
+            include search
+      +menu(menu)
+         a(id="menu")
+         +menu-set('home')
+            a.home.subject-icon(href=menu.home.href)
+               i.fa.fa-home
+         +menu-set('more')
+            i.fa.fa-ellipsis-h.click.more.a

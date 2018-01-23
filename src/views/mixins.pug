@@ -1,0 +1,112 @@
+
+mixin block-set(mixin, blockid)
+   - locals.BlockAmbry[mixin] = locals.BlockAmbry[mixin] || {}
+   - locals.BlockAmbry[mixin][blockid] = locals.BlockAmbry[mixin][blockid] || [];
+   - locals.BlockAmbry[mixin][blockid].push(function() { return block.call(this) });
+
+mixin block-call(mixin, blockid)
+   if locals.BlockAmbry[mixin]
+      each val, i in locals.BlockAmbry[mixin][blockid]
+         - locals.BlockAmbry[mixin][blockid][i].call();
+
+mixin menu-set(item)
+   +block-set('menu-mixin', item)
+      block
+
+mixin js-added()
+   - locals.BlockAmbry['js-mixin'] = {}
+   +block-set('js-mixin', 'added')
+      block
+
+mixin menu(items)
+   - locals.BlockAmbry['menu-mixin'] = {}
+   block
+   .menu.navbar-default
+      ul.nav.navbar-nav.navbar.text-center
+         each val, bl in items
+            li(class=locals.pageActive(bl))
+               if locals.BlockAmbry['menu-mixin'][bl]
+                  +block-call('menu-mixin', bl)
+               else
+                  a(href=val.href)= val.link
+
+mixin slider(items)
+   .review#slider.carousel.slide(data-ride="carousel")
+      .carousel-indicators
+         li.active(data-target="#slider" data-slide-to="0")
+         li(data-target="#slider" data-slide-to="1")
+         li(data-target="#slider" data-slide-to="2")
+
+      .left.carousel-control.click(href="#slider" data-slide="prev")
+         i.fa.fa-angle-double-left.glyphicon.glyphicon-chevron-left
+      .right.carousel-control.click(href="#slider" data-slide="next")
+         i.fa.fa-angle-double-right.glyphicon.glyphicon-chevron-right
+
+      .carousel-inner
+         each item, i in items
+            .item(class=(!i ? 'active' : ''))
+               .background(style=`background: url(${item.background}); background-position: ${item.position} !important`)
+               a(href="n").full
+                  .block(class=item.classes)
+                     .category= item.category
+                     h1.subject= item.title
+                     .more
+                        .link
+                           i.fa.fa-bookmark
+                           = item.bookmark
+                        i.fa.fa.fa-circle.circle
+                        .date
+                           i.fa.fa-clock-o
+                           = item.date
+
+mixin projects-block(item)
+   .project.review.block
+      .background(style=`background: url(${item.background})`)
+      a(href=`/articles/${item.categoryid}/${item.id}`).full
+         .block-center
+            h1.subject= item.title
+      .more
+         .date
+            i.fa.fa-clock-o
+            = item.date
+
+mixin news-blocks(items)
+   - const blocks = [];
+   - items.forEach((el) => { const ROW = el.main; blocks[ROW] = blocks[ROW] || []; blocks[ROW].push(el); });
+    each articles in blocks
+       if articles
+          .article
+             each block in articles
+                .wrapper(class=`col-md-${block.priority}` data-article=JSON.stringify(block))
+                   .abs-wrapper(class=`col-md-${block.priority}`)
+                      .block
+                   a.block(class=block.classes href=`/articles/${block.categoryid}/${block.id}`)
+                      if block.background
+                         .abs-wrapper-background
+                            .background(style=`background: url(${block.background})`)
+                      .category= block.category
+                      h1.subject= block.subject
+                      .preview-text= block.description
+                      .more
+                         .link
+                            i.fa.fa-bookmark
+                            = block.bookmark
+                         i.fa.fa.fa-circle.circle
+                         .date
+                            i.fa.fa-clock-o
+                            = block.date
+                      if block.keys
+                         .keys
+                            i.fa.fa-paperclip
+                            each key, i in block.keys
+                               span.click
+                                  if i
+                                     i.fa.fa-circle.circle
+                                  = key
+
+mixin logo(black)
+   a.logo(href="/")
+      if black
+         img(src="/static/images/logo-black.png")
+      else
+         img(src="/static/images/logo.png")

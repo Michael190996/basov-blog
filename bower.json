@@ -1,0 +1,40 @@
+{
+  "name": "Blog",
+  "main": "dist/index.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.7.0",
+    "jquery.cookie": "^1.4.1",
+    "masonry-layout": "^4.2.1"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.min.css",
+        "dist/js/bootstrap.min.js"
+      ]
+    },
+    "components-font-awesome": {
+      "main": [
+        "css/font-awesome.min.css",
+        "fonts/*"
+      ]
+    },
+    "jquery": {
+      "main": "dist/jquery.min.js"
+    },
+    "jquery.cookie": {
+      "main": "jquery.cookie.js"
+    },
+    "masonry-layout": {
+      "main": "dist/masonry.pkgd.min.js"
+    }
+  }
+}

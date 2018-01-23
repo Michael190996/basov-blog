@@ -1,0 +1,18 @@
+extends ../extends/layout
+include ../mixins
+
+block fix
+   include ../structure/fix-menu
+   include ../structure/modal-gallery
+
+block content
+   .review
+      .background(style=`background: url(${menu[pageTemplate].img}); background-position: 50% 70% !important;`)
+      .full
+         .block-center.block
+            .category.active= menu[pageTemplate].title
+
+   .gallery
+      .container
+         a.albums.fa.fa-th.active.click(href="/photo#menu")
+         = JSON.stringify(dataPhotosAlbums)
