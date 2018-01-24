@@ -15,7 +15,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ""
       BLOG_PORT: 3000
-      CACHE: true
+      CACHE: "true"
   db:
     image: postgres
     volumes:

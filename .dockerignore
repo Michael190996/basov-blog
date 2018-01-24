@@ -1,7 +1,5 @@
 .git
 .idea
-docker-compose.yml
-server.js
 bower_components
 node_modules
 db

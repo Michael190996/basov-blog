@@ -10,3 +10,4 @@ dist/static/styles/*
 dist/static/libs/*
 postgres/data/*
 db/postgres/data/*
+package-lock.json
